@@ -4,12 +4,12 @@ from game.shared.point import Point
 
 class Cycle(Actor):
     """
-    A long limbless reptile.
+    A one man vehicle you ride on.
     
-    The responsibility of Snake is to move itself.
+    The responsibility of Cycle is to move itself.
     
     Attributes:
-        _points (int): The number of oints the food is worth.
+        _points (int): The number of points
     """
     def __init__(self, color):
         super().__init__()
@@ -29,7 +29,8 @@ class Cycle(Actor):
             trailing = self._segments[i]
             previous = self._segments[i - 1]
             velocity = previous.get_velocity()
-            trailing._set_velocity(velocity)
+            trailing.set_velocity(velocity)
+        self.grow_trail(1)
             
     def get_head(self):
         return self._segments[0]
@@ -41,12 +42,12 @@ class Cycle(Actor):
             offset = velocity.reverse()
             position = tail.get_position().add(offset)
             
-            segment = Actor
+            segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text("#")
             segment.set_color(self._cycle_color)
-            segment._segments.append(segment)
+            self._segments.append(segment)
             
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)
@@ -59,7 +60,7 @@ class Cycle(Actor):
             x = int(20)
             y = int(constants.MAX_Y / 2)
         else:
-            x = int(-20)
+            x = int(20)
             y = int(constants.MAX_Y / 2)
         
         for i in range(constants.SNAKE_LENGTH):
@@ -73,4 +74,3 @@ class Cycle(Actor):
             segment.set_text(text)
             segment.set_color(self._cycle_color)
             self._segments.append(segment)
-    

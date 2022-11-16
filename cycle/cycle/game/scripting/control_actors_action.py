@@ -61,7 +61,7 @@ class ControlActorsAction(Action):
             self._direction2 = Point(-constants.CELL_SIZE, 0)
             
         #right
-        if self._keyboard_service.is__key_down('l'):
+        if self._keyboard_service.is_key_down('l'):
             self._direction2 = Point(constants.CELL_SIZE, 0)
             
         #up
