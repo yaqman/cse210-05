@@ -1,10 +1,6 @@
-<<<<<<< HEAD:cycle/README.md
 ## Cycle
 ---
 Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them.
-=======
-# cse210-05
->>>>>>> fe02ac80db52ed275749892659fbe81e28f71461:README.md
 
 ## Getting Started
 ---
